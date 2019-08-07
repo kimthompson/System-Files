@@ -88,8 +88,6 @@ set lazyredraw " redraw only when we need to
 set showmatch " highlight matching [{()}]
 set incsearch " search as characters are entered
 set hlsearch " highlight matches
-set foldenable " enable folding
-set foldmethod=indent " fold based on indent level
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete " basic, vim-included omnicompletion
 set wrap
