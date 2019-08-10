@@ -13,6 +13,7 @@ alias red="redmine "
 alias red-shirk="redmine update-issue -a ' ' "
 alias red-me="redmine issues --me"
 alias red-assign-me="redmine update-issue -a 'Kim Thompson'"
+alias exgrep="grep -R --exclude-dir={node_modules,build,.git} "
 
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 

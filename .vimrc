@@ -10,12 +10,16 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()
 
-map <C-j> <C-W>j
+" switch windows with directional keys
+map <C-j> <C-W>j 
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+set clipboard=unnamed " copy to the system clipboard
+
+" get out of insert mode with 'jk'
 inoremap jk <Esc>
- 
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -47,7 +51,9 @@ Plugin 'sheerun/vim-polyglot' " syntax highlighting for over 100 languages, lazy
 Plugin 'dense-analysis/ale' " linting for any project that has it set up, including eslint and prettier
 Plugin 'scrooloose/nerdcommenter' " commenting shortcuts for many languages
 Plugin 'scrooloose/nerdtree' " trying out nerdtree
+Plugin 'tpope/vim-surround' " bracket matching and management utility
 Plugin 'tpope/vim-sleuth' " automatically adjusts shiftwidth and expandtab heuristically based on the current file or by looking at other files of the same type
+Plugin 'jparise/vim-graphql' " adds graphql syntax highlighting and file recognition
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -98,3 +104,4 @@ set modeline
 set nojoinspaces " pesky 2-spaces after the period thing
 set showcmd
 set shortmess=at
+set backspace=indent,eol,start " backspace ought to perform like it does in other programs
