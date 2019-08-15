@@ -1,6 +1,6 @@
 eval "$(rbenv init -)"
 
-alias alias-edit="code ~/.bash_profile"
+alias alias-edit="vi ~/.bash_profile"
 alias be="bundle exec "
 alias git-branch="git branch --list -a"
 alias git-pretty="git log --pretty=oneline --graph --decorate --all"
