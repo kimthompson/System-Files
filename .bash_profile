@@ -1,4 +1,5 @@
 eval "$(rbenv init -)"
+eval "$(nodenv init -)"
 
 alias alias-edit="vi ~/.bash_profile"
 alias be="bundle exec "
@@ -13,9 +14,12 @@ alias red="redmine "
 alias red-shirk="redmine update-issue -a ' ' "
 alias red-me="redmine issues --me"
 alias red-assign-me="redmine update-issue -a 'Kim Thompson'"
-alias exgrep="grep -R --exclude-dir={node_modules,build,.git} "
+alias exgrep="grep -R --exclude-dir={node_modules,build,.git,dist,.next,tmp,log} "
+alias ssh-news="ssh mprnews@hqwebnodeappdev01.mpr.org"
+alias ssh-podcasts="ssh apmpodcasts@hqwebnodeappdev01.mpr.org"
 
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 function start_proxy {
     cd ~/Git/Sites/cmsproxy
@@ -31,4 +35,8 @@ function stop_proxy {
     echo "Server running with process id ${PID} stopped"
 }
 
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+function cdls() {
+    cd "$@" && ls;
+}
+
+set keymap vi

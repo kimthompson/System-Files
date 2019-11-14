@@ -54,6 +54,10 @@ Plugin 'scrooloose/nerdtree' " trying out nerdtree
 Plugin 'tpope/vim-surround' " bracket matching and management utility
 Plugin 'tpope/vim-sleuth' " automatically adjusts shiftwidth and expandtab heuristically based on the current file or by looking at other files of the same type
 Plugin 'jparise/vim-graphql' " adds graphql syntax highlighting and file recognition
+Plugin 'evanleck/vim-svelte' " adds svelte syntax highlighting and file recognition
+Plugin 'tpope/vim-rails' " adds Ruby on Rails power tools
+Plugin 'skalnik/vim-vroom' " runs Ruby tests
+Plugin 'terryma/vim-multiple-cursors' " what it says on the tin
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -105,3 +109,4 @@ set nojoinspaces " pesky 2-spaces after the period thing
 set showcmd
 set shortmess=at
 set backspace=indent,eol,start " backspace ought to perform like it does in other programs
+let TreeShowHidden=1
