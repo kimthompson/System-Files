@@ -17,6 +17,7 @@ alias red-assign-me="redmine update-issue -a 'Kim Thompson'"
 alias exgrep="grep -R --exclude-dir={node_modules,build,.git,dist,.next,tmp,log} "
 alias ssh-news="ssh mprnews@hqwebnodeappdev01.mpr.org"
 alias ssh-podcasts="ssh apmpodcasts@hqwebnodeappdev01.mpr.org"
+alias edit-browsh="vim '~/Library/Application Support/browsh/config.toml'"
 
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
