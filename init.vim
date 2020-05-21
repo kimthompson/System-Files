@@ -26,30 +26,25 @@ set clipboard=unnamed " copy to the system clipboard
 " get out of insert mode with 'jk'
 inoremap jk <Esc>
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" initialize vim-plug for neovim
+call plug#begin(stdpath('data') . '/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'NLKNguyen/papercolor-theme' " my theme
+Plug 'sheerun/vim-polyglot' " syntax highlighting for over 100 languages, lazy-loaded
+Plug 'dense-analysis/ale' " linting for any project that has it set up, including eslint and prettier
+Plug 'scrooloose/nerdcommenter' " commenting shortcuts for many languages
+Plug 'scrooloose/nerdtree' " trying out nerdtree
+Plug 'tpope/vim-surround' " bracket matching and management utility
+Plug 'tpope/vim-sleuth' " automatically adjusts shiftwidth and expandtab heuristically based on the current file or by looking at other files of the same type
+Plug 'jparise/vim-graphql' " adds graphql syntax highlighting and file recognition
+Plug 'evanleck/vim-svelte' " adds svelte syntax highlighting and file recognition
+Plug 'tpope/vim-rails' " adds Ruby on Rails power tools
+Plug 'skalnik/vim-vroom' " runs Ruby tests
 
-Plugin 'NLKNguyen/papercolor-theme' " my theme
-Plugin 'sheerun/vim-polyglot' " syntax highlighting for over 100 languages, lazy-loaded
-Plugin 'dense-analysis/ale' " linting for any project that has it set up, including eslint and prettier
-Plugin 'scrooloose/nerdcommenter' " commenting shortcuts for many languages
-Plugin 'scrooloose/nerdtree' " trying out nerdtree
-Plugin 'tpope/vim-surround' " bracket matching and management utility
-Plugin 'tpope/vim-sleuth' " automatically adjusts shiftwidth and expandtab heuristically based on the current file or by looking at other files of the same type
-Plugin 'jparise/vim-graphql' " adds graphql syntax highlighting and file recognition
-Plugin 'evanleck/vim-svelte' " adds svelte syntax highlighting and file recognition
-Plugin 'tpope/vim-rails' " adds Ruby on Rails power tools
-Plugin 'skalnik/vim-vroom' " runs Ruby tests
-Plugin 'iamcco/markdown-preview.nvim' " Markdown preview
+call plug#end() " required
+filetype plugin indent on " required
 
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-set t_Co=256   " This is may or may not needed.
+set t_Co=256 " This is may or may not needed.
 
 set background=dark
 colorscheme PaperColor

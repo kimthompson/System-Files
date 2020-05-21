@@ -1,7 +1,7 @@
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 
-alias alias-edit="vi ~/.bash_profile"
+alias alias-edit="nvim ~/.bash_profile"
 alias be="bundle exec "
 alias git-branch="git branch --list -a"
 alias git-pretty="git log --pretty=oneline --graph --decorate --all"
@@ -18,6 +18,11 @@ alias exgrep="grep -R --exclude-dir={node_modules,build,.git,dist,.next,tmp,log}
 alias ssh-news="ssh mprnews@hqwebnodeappdev01.mpr.org"
 alias ssh-podcasts="ssh apmpodcasts@hqwebnodeappdev01.mpr.org"
 alias edit-browsh="vim '~/Library/Application Support/browsh/config.toml'"
+alias zlack="python3 ~/Git/zarf-slack-cli/zlack.py --clientid 2535248609.928797495507 --clientsecret afa0e034cfd47a8a12ca951d5acd94e9"
+alias neovim-config="nvim ~/.config/nvim/init.vim"
+alias weather="curl wttr.in/st-paul"
+alias parrot="curl parrot.live"
+alias lorem="curl loripsum.net/api/3/plaintext"
 
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
@@ -38,6 +43,11 @@ function stop_proxy {
 
 function cdls() {
     cd "$@" && ls;
+}
+
+function settitle() {
+    export PS1="\[\e[32m\]\u@\h \{\e[33m\]\w\[\e[0m\]\n$ "
+    echo -ne "\e]0;$1\a"
 }
 
 set keymap vi
