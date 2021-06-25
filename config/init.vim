@@ -1,3 +1,4 @@
+"set termguicolors
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set number
@@ -30,6 +31,8 @@ inoremap jk <Esc>
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'NLKNguyen/papercolor-theme' " my theme
+Plug 'morhetz/gruvbox' " a new theme?
+Plug 'sainnhe/edge' " a new theme?
 Plug 'sheerun/vim-polyglot' " syntax highlighting for over 100 languages, lazy-loaded
 Plug 'dense-analysis/ale' " linting for any project that has it set up, including eslint and prettier
 Plug 'scrooloose/nerdcommenter' " commenting shortcuts for many languages
@@ -42,8 +45,8 @@ Plug 'tpope/vim-rails' " adds Ruby on Rails power tools
 Plug 'skalnik/vim-vroom' " runs Ruby tests
 
 call plug#end() " required
-filetype plugin indent on " required
 
+filetype plugin indent on " required
 set t_Co=256 " This is may or may not needed.
 
 set background=dark
