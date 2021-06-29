@@ -1,3 +1,4 @@
+"set termguicolors
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set number
@@ -30,20 +31,25 @@ inoremap jk <Esc>
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'NLKNguyen/papercolor-theme' " my theme
-Plug 'sheerun/vim-polyglot' " syntax highlighting for over 100 languages, lazy-loaded
+"Plug 'sheerun/vim-polyglot' syntax highlighting for over 100 languages, lazy-loaded
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " we recommend updating the parsers on update
+Plug 'modille/groovy.vim' " syntax highlighting for Groovy
+Plug 'MaxMEllon/vim-jsx-pretty' " syntax highlighting for JSX (and TSX?)
+Plug 'pechorin/any-jump.vim' " find definitions and references/usages without overhead for 40+ languages
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " code completion, based on servers
+Plug 'vim-test/vim-test' " test runner
 Plug 'dense-analysis/ale' " linting for any project that has it set up, including eslint and prettier
-Plug 'scrooloose/nerdcommenter' " commenting shortcuts for many languages
-Plug 'scrooloose/nerdtree' " trying out nerdtree
+"Plug 'scrooloose/nerdcommenter' " commenting shortcuts for many languages
+Plug 'scrooloose/nerdtree' " file navigator
+Plug 'tpope/vim-commentary' " better ? commenting shortcuts
 Plug 'tpope/vim-surround' " bracket matching and management utility
 Plug 'tpope/vim-sleuth' " automatically adjusts shiftwidth and expandtab heuristically based on the current file or by looking at other files of the same type
 Plug 'jparise/vim-graphql' " adds graphql syntax highlighting and file recognition
 Plug 'evanleck/vim-svelte' " adds svelte syntax highlighting and file recognition
-Plug 'tpope/vim-rails' " adds Ruby on Rails power tools
-Plug 'skalnik/vim-vroom' " runs Ruby tests
 
 call plug#end() " required
-filetype plugin indent on " required
 
+filetype plugin indent on " required
 set t_Co=256 " This is may or may not needed.
 
 set background=dark
