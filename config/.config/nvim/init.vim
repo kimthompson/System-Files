@@ -34,6 +34,7 @@ Plug 'NLKNguyen/papercolor-theme' " my theme
 "Plug 'sheerun/vim-polyglot' syntax highlighting for over 100 languages, lazy-loaded
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " we recommend updating the parsers on update
 Plug 'modille/groovy.vim' " syntax highlighting for Groovy
+Plug 'leafgarland/typescript-vim' " syntax highlighting for TypeScript 
 Plug 'MaxMEllon/vim-jsx-pretty' " syntax highlighting for JSX (and TSX?)
 Plug 'pechorin/any-jump.vim' " find definitions and references/usages without overhead for 40+ languages
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " code completion, based on servers
@@ -55,6 +56,9 @@ set t_Co=256 " This is may or may not needed.
 set background=dark
 colorscheme PaperColor
 syntax enable
+
+" Custom command: close all buffers but the one I'm on
+command! BufOnly execute '%bdelete|edit #|normal `"'
 
 " Recs from https://dougblack.io/words/a-good-vimrc.html
 set tabstop=2 " number of visual spaces per TAB
