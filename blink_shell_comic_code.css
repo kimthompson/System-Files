@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "Comic Code";
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://github.com/kimthompson/system_files/blob/master/Comic%20Code%20Font/ttf/Tabular%20Type%20Foundry%20-%20Comic%20Code%20Regular.ttf?raw=true' format('truetype'));
+}
+@font-face {
+    font-family: "Comic Code";
+    font-style: italic;
+    font-weight: 400;
+    src: url('https://github.com/kimthompson/system_files/blob/master/Comic%20Code%20Font/ttf/Tabular%20Type%20Foundry%20-%20Comic%20Code%20Italic.ttf?raw=true' format('truetype'));
+}
+@font-face {
+    font-family: "Comic Code";
+    font-style: bold;
+    font-weight: 400;
+    src: url('https://github.com/kimthompson/system_files/blob/master/Comic%20Code%20Font/ttf/Tabular%20Type%20Foundry%20-%20Comic%20Code%20Bold.ttf?raw=true' format('truetype'));
+}
