@@ -15,7 +15,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # install zsh and configure with oh my zsh
 sudo apt install zsh -y
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 rm ~/.zshrc
 curl https://raw.githubusercontent.com/kimthompson/system_files/master/.zshrc --output ~/.zshrc
 
