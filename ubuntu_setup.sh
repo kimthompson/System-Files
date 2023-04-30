@@ -15,10 +15,9 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # install zsh and configure with oh my zsh
 sudo apt install zsh -y
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 rm ~/.zshrc
 curl https://raw.githubusercontent.com/kimthompson/system_files/master/.zshrc --output ~/.zshrc
-source ~/.zshrc
 
 # install my most beloved tools
 NONINTERACTIVE=1 brew install gh fd ripgrep lazygit neovim tmux
@@ -30,4 +29,5 @@ curl https://raw.githubusercontent.com/kimthompson/system_files/master/.tmux.con
 git clone https://github.com/LazyVim/starter ~/.config/nvim/
 rm -rf ~/.config/nvim/.git
 curl https://raw.githubusercontent.com/kimthompson/system_files/master/custom.lua --output ~/.config/nvim/lua/plugins/custom.lua
-vim
+chsh -s $(which zsh)
+nvim
