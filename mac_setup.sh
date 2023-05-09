@@ -3,11 +3,8 @@
 # install homebrew
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# update everything
-brew update
-brew upgrade
-brew cleanup -s
-brew cask cleanup
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> ~/.zshrc
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # install my most beloved tools
 NONINTERACTIVE=1 brew install gh fd ripgrep zsh tmux lazygit neovim
