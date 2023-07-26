@@ -82,11 +82,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -102,20 +102,75 @@ source $ZSH/oh-my-zsh.sh
 #
 export PATH=/home/kim/.local/bin:$PATH
 alias nr='npm run'
+alias brew-audit='brew leaves --installed-on-request | xargs -1 brew desc --eval-all'
+alias vim='nvim'
+alias ipsum='curl loripsum.net/api/3/plaintext'
+alias to-records='cd /Users/kimtho/Desktop/Working'
 alias git-nope='git reset --hard'
-alias git-set='git push --set-upstream origin '
+alias git-branch='git branch --show-current | cat'
+alias git-set='git push --set-upstream origin $(git-branch)'
 alias tmuxn='tmux new -s '
 alias tmuxa='tmux attach -t '
 alias tmuxk='tmux kill-session -t '
 alias tmuxd='tmux detach '
-alias weather='curl wttr.in/st-paul'
-alias weather='curl parrot.live'
-alias ipsum='curl loripsum.net/api/3/plaintext'
-alias cam='() { open https://jira.cox.com/browse/CAM-"$@" ;}'
-alias matrix='cmatrix'
-alias vim='nvim'
-alias brew-audit='brew leaves --installed-on-request | xargs -1 brew desc --eval-all'
+alias me='jira issue list -a$(jira me) | cat'
+alias me-next='jira issue list -a$(jira me) -sOpen -sScheduled | cat'
+alias me-now='jira issue list -a$(jira me) -s"Dev In Progress" | cat'
+alias me-review='jira issue list -a$(jira me) -s"Preparing for QA" -s"Ready for QA" -s"QA in Progress" | cat'
+alias me-done='jira issue list -a$(jira me) -sClosed | cat'
+alias lb='() { jira issue view --comments 10 LB-"$@" ;}'
+alias sp='() { jira issue view --comments 10 SP-"$@" ;}'
+alias pe='() { jira issue view --comments 10 PE-"$@" ;}'
+alias lbo='() { jira open LB-"$@" ;}'
+alias spo='() { jira open SP-"$@" ;}'
+alias peo='() { jira open PE-"$@" ;}'
+alias ios-version='appcenter build branches show --app Anderson-Trucking-Service/ATSCLB-QA --branch develop | grep -o -m 1 "[0-9][0-9][0-9]"'
+alias android-version='appcenter build branches show --app Anderson-Trucking-Service/ATSCLB-QA-1 --branch develop | grep -o -m 1 "[0-9][0-9][0-9]"'
+alias build-status='echo -e "\e[95miOS build #$(ios-version) \e[49m@ \e[93m$(getLastBuilt)"'
+alias build-status-android='echo -e "\e[95mAndroid build #$(android-version) \e[49m@ \e[93m$(getLastBuilt android)"'
+alias derived='rm -rf ~/Library/Developer/Xcode/DerivedData'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - )"
+
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export ANDROID_HOME=~/Library/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
+
+getLastBuiltByNumber() {
+  if [ "$2" = "android" ]; then
+    appcenter build logs --app Anderson-Trucking-Service/ATSCLB-QA-1 -i "$1" | head -c28 | gdate -f -
+  else
+    appcenter build logs --app Anderson-Trucking-Service/ATSCLB-QA -i "$1" | head -c28 | gdate -f -
+  fi
+}
+
+getLastBuilt() {
+  if [ "$1" = "android" ]; then
+    appcenter build logs --app Anderson-Trucking-Service/ATSCLB-QA-1 -i $(android-version) | head -c28 | gdate -f -
+  else
+    appcenter build logs --app Anderson-Trucking-Service/ATSCLB-QA -i $(ios-version) | head -c28 | gdate -f -
+  fi
+}
+
+addBuildCommentToIssue() {
+  # jira issue comment add "$1" "[~samstan:6331e5c9748d1bfcb85913be] should be in qa $(ios-version)"
+  # jira issue comment add "$1" "[~samstan] should be in qa $(ios-version)"
+  # jira issue comment add "$1" "[~6331e5c9748d1bfcb85913be] should be in qa $(ios-version)"
+  # jira issue comment add "$1" "[~accountId:6331e5c9748d1bfcb85913be] should be in qa $(ios-version)"
+  # jira issue comment add "$1" "[~accountid:6331e5c9748d1bfcb85913be] should be in qa $(ios-version)"
+  # jira issue comment add "$1" "[~samsta] Can be found in qa $(ios-version)"
+  jira issue comment add "$1" "[~samsta:6331e5c9748d1bfcb85913be] Can be found in QA #$(ios-version)"
+  # jira issue comment add "$1" "<span aria-expanded=\"false\" aria-haspopup=\"true\" role=\"button\" tabindex=\"0\"><span data-mention-id=\"6331e5c9748d1bfcb85913be\" data-access-level=\"\" spellcheck=\"false\"><span spellcheck=\"false\" class=\"css-8790ld\">@Sam Stanton</span></span></span>Can be found in qa $(ios-version)"
+}
+
+convertToMp4() {
+  ffmpeg -i "$1" -c:v libx264 -c:a aac -strict experimental -b:a 192k "$2"
+}
