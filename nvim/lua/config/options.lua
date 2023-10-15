@@ -3,7 +3,5 @@
 -- Add any additional options here
 
 vim.g.blamer_enabled = 1
-
-return {
-  {},
-}
+vim.opt.relativenumber = true
+vim.opt.wrap = false

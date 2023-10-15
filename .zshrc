@@ -129,6 +129,7 @@ alias android-version='appcenter build branches show --app Anderson-Trucking-Ser
 alias build-status='echo -e "\e[95miOS build #$(ios-version) \e[49m@ \e[93m$(getLastBuilt)"'
 alias build-status-android='echo -e "\e[95mAndroid build #$(android-version) \e[49m@ \e[93m$(getLastBuilt android)"'
 alias derived='rm -rf ~/Library/Developer/Xcode/DerivedData'
+alias run-on-my-phone='npx react-native run-ios --scheme "ATSCLBDev" --device "Kim iPhone 13 mini"'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -174,3 +175,4 @@ addBuildCommentToIssue() {
 convertToMp4() {
   ffmpeg -i "$1" -c:v libx264 -c:a aac -strict experimental -b:a 192k "$2"
 }
+export PATH=$PATH:$HOME/.maestro/bin

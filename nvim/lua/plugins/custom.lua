@@ -26,7 +26,7 @@ return {
         NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
         Q    = { icon = "? ", color = "default", alt = { "QUESTION" } },
         TODO = { icon = " ", color = "info" },
-        HACK = { icon = " ", color = "hint", alt = { "HINT" } },
+        HACK = { icon = " ", color = "hint", alt = { "HINT", "IDEA", "FUTURE" } },
         WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
         PERF = { icon = " ", color = "warning", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
         TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
