@@ -1,5 +1,16 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+# PATH=/usr/bin:/bin:/usr/sbin:/sbin
+# export PATH
+
+# add custom, local installations to PATH
+# PATH=/usr/local/bin:/usr/local/sbin:"$PATH"
+
+# add MacPorts to PATH
+# PATH=/opt/local/bin:/opt/local/sbin:"$PATH"
+
+# NeoVIM
+export PATH="/usr/local/bin/nvim:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -109,6 +120,8 @@ alias to-records='cd /Users/kimtho/Desktop/Working'
 alias git-nope='git reset --hard'
 alias git-branch='git branch --show-current | cat'
 alias git-set='git push --set-upstream origin $(git-branch)'
+alias git-stash-unstaged='git commit -m "WIP" --no-verify && git stash -u && git reset --soft HEAD^'
+alias git-stash-staged='git stash --staged'
 alias tmuxn='tmux new -s '
 alias tmuxa='tmux attach -t '
 alias tmuxk='tmux kill-session -t '
@@ -128,22 +141,19 @@ alias ios-version='appcenter build branches show --app Anderson-Trucking-Service
 alias android-version='appcenter build branches show --app Anderson-Trucking-Service/ATSCLB-QA-1 --branch develop | grep -o -m 1 "[0-9][0-9][0-9]"'
 alias build-status='echo -e "\e[95miOS build #$(ios-version) \e[49m@ \e[93m$(getLastBuilt)"'
 alias build-status-android='echo -e "\e[95mAndroid build #$(android-version) \e[49m@ \e[93m$(getLastBuilt android)"'
-alias derived='rm -rf ~/Library/Developer/Xcode/DerivedData'
+alias derived='rm -rf ~/Library/Developer/Xcode/DerivedData/{*,.*}'
+alias profiles='rm -rf ~/Library/MobileDevice/Provisioning\ Profiles/{*,.*}'
 alias run-on-my-phone='npx react-native run-ios --scheme "ATSCLBDev" --device "Kim iPhone 13 mini"'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - )"
 
-export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 export ANDROID_HOME=~/Library/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/10.0/bin
 
 getLastBuiltByNumber() {
   if [ "$2" = "android" ]; then
@@ -176,3 +186,12 @@ convertToMp4() {
   ffmpeg -i "$1" -c:v libx264 -c:a aac -strict experimental -b:a 192k "$2"
 }
 export PATH=$PATH:$HOME/.maestro/bin
+
+# bun completions
+[ -s "/Users/kimtho/.bun/_bun" ] && source "/Users/kimtho/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
