@@ -96,7 +96,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -113,8 +113,9 @@ fi
 #
 export PATH=/home/kim/.local/bin:$PATH
 alias nr='npm run'
+alias br='bun run'
+alias nvim='~/nvim-macos/bin/nvim'
 alias brew-audit='brew leaves --installed-on-request | xargs -1 brew desc --eval-all'
-alias vim='nvim'
 alias ipsum='curl loripsum.net/api/3/plaintext'
 alias to-records='cd /Users/kimtho/Desktop/Working'
 alias git-nope='git reset --hard'
@@ -122,6 +123,7 @@ alias git-branch='git branch --show-current | cat'
 alias git-set='git push --set-upstream origin $(git-branch)'
 alias git-stash-unstaged='git commit -m "WIP" --no-verify && git stash -u && git reset --soft HEAD^'
 alias git-stash-staged='git stash --staged'
+alias git-morning='git stash push -m "morningd too hard" && git fetch origin && git checkout develop && git pull'
 alias tmuxn='tmux new -s '
 alias tmuxa='tmux attach -t '
 alias tmuxk='tmux kill-session -t '
@@ -141,7 +143,7 @@ alias ios-version='appcenter build branches show --app Anderson-Trucking-Service
 alias android-version='appcenter build branches show --app Anderson-Trucking-Service/ATSCLB-QA-1 --branch develop | grep -o -m 1 "[0-9][0-9][0-9]"'
 alias build-status='echo -e "\e[95miOS build #$(ios-version) \e[49m@ \e[93m$(getLastBuilt)"'
 alias build-status-android='echo -e "\e[95mAndroid build #$(android-version) \e[49m@ \e[93m$(getLastBuilt android)"'
-alias derived='rm -rf ~/Library/Developer/Xcode/DerivedData/{*,.*}'
+alias derived='open ~/Library/Developer/Xcode/DerivedData'
 alias profiles='rm -rf ~/Library/MobileDevice/Provisioning\ Profiles/{*,.*}'
 alias run-on-my-phone='npx react-native run-ios --scheme "ATSCLBDev" --device "Kim iPhone 13 mini"'
 

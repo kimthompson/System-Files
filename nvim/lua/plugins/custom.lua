@@ -1,4 +1,10 @@
 return {
+  { "AndrewRadev/tagalong.vim" },
+  {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    build = "make install_jsregexp",
+  },
   {
     "max397574/better-escape.nvim",
     config = function()
@@ -62,7 +68,7 @@ return {
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPre", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile", "InsertLeave" },
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
       { "folke/neodev.nvim", opts = { experimental = { pathStrict = true } } },
@@ -93,8 +99,6 @@ return {
       },
       -- add any global capabilities here
       capabilities = {},
-      -- Automatically format on save
-      autoformat = false,
       -- options for vim.lsp.buf.format
       -- `bufnr` and `filter` is handled by the LazyVim formatter,
       -- but can be also overridden when specified

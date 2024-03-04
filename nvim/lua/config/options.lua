@@ -3,5 +3,6 @@
 -- Add any additional options here
 
 vim.g.blamer_enabled = 1
+vim.b.autoformat = false
 vim.opt.relativenumber = true
 vim.opt.wrap = false
