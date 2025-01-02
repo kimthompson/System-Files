@@ -1,18 +1,20 @@
 -- Pull in the wezterm API
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
 -- For example, changing the color scheme:
-config.color_scheme = 'Catppuccin Mocha'
-config.font = wezterm.font {
-  family = 'Cascadia Code NF',
-  weight = "Regular",
-  harfbuzz_features = { 'ss01' }
-}
+-- config.color_scheme = 'Catppuccin Mocha'
+config.colors = require("cyberdream")
+config.font = wezterm.font({
+	family = "Cascadia Code NF",
+	weight = "Regular",
+	harfbuzz_features = { "ss01" },
+})
 config.font_size = 13.0
 config.hide_tab_bar_if_only_one_tab = true
+-- config.window_background_opacity = 0.9
 
 -- This is where you actually apply your config choices
 -- config.leader = { key = 'Space', mods = 'CTRL', timeout_milliseconds = 1000 }
@@ -52,10 +54,8 @@ config.hide_tab_bar_if_only_one_tab = true
 
 -- sample options from smart-splits repo (see NeoVIM setup)
 
-
 -- and finally, return the configuration to wezterm
 return config
-
 
 -- wezterm.font("Cascadia Code", {weight="ExtraLight", stretch="Normal", style="Normal"}) -- /Users/kimtho/Library/Fonts/CascadiaCode-ExtraLight.otf, CoreText
 -- wezterm.font("Cascadia Code", {weight="ExtraLight", stretch="Normal", style="Italic"}) -- (AKA: Cascadia Code ExtraLight) /Users/kimtho/Library/Fonts/CascadiaCode-ExtraLightItalic.otf, CoreText

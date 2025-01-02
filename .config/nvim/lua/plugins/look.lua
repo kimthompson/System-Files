@@ -1,4 +1,28 @@
 return {
+  -- {
+  --   "lalitmee/cobalt2.nvim",
+  --   dependencies = "tjdevries/colorbuddy.nvim",
+  --   config = function()
+  --     require("colorbuddy").colorscheme("cobalt2")
+  --   end,
+  -- },
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    italic_comments = true,
+    hide_fillchars = true,
+    terminal_colors = true,
+    theme = {
+      variant = "default",
+      saturation = 1,
+    },
+    extensions = {
+      telescope = true,
+      notify = true,
+      mini = true,
+    },
+  },
   {
     "catppuccin/nvim",
     as = "catppuccin",
@@ -20,7 +44,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "cyberdream",
     },
   },
   {

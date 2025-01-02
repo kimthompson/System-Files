@@ -8,3 +8,6 @@ map("!", "<C-h>", "<cmd> TmuxNavigateLeft<CR>", { noremap = true })
 map("!", "<C-j>", "<cmd> TmuxNavigateDown<CR>", { noremap = true })
 map("!", "<C-k>", "<cmd> TmuxNavigateUp<CR>", { noremap = true })
 map("!", "<C-l>", "<cmd> TmuxNavigateRight<CR>", { noremap = true })
+
+-- Add a custom keybinding to toggle the colorscheme
+vim.api.nvim_set_keymap("n", "<leader>tt", ":CyberdreamToggleMode<CR>", { noremap = true, silent = true })

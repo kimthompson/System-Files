@@ -40,8 +40,5 @@ export NORM='\033[0m' # No Color
 # Silence some annoying Starship warnings in larger repos
 export STARSHIP_LOG='error'
 
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
