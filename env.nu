@@ -92,7 +92,7 @@ $env.NU_PLUGIN_DIRS = [
 # which is built into the nushell stdlib:
 use std "path add"
 path add "/opt/homebrew/bin"
-path add "/usr/local/bin/devpod"
+path add "/usr/local/bin"
 # $env.PATH = ($env.PATH | split row (char esep))
 # path add /some/path
 # path add ($env.CARGO_HOME | path join "bin")
