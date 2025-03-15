@@ -1,0 +1,70 @@
+return {
+  -- {
+  --   "benlubas/neorg-interim-ls",
+  --   priority = 1000,
+  --   config = true,
+  -- },
+  -- {
+  --   "vhyrro/luarocks.nvim",
+  --   priority = 1000,
+  --   config = true,
+  -- },
+  -- {
+  --   "nvim-neorg/neorg",
+  --   dependencies = { "luarocks.nvim" },
+  --   version = "*",
+  --   -- config = true,
+  --   config = function()
+  --     require("neorg").setup({
+  --       load = {
+  --         ["core.defaults"] = {}, -- Loads default behaviour
+  --         ["core.concealer"] = {}, -- Adds pretty icons to your documents
+  --         ["core.ui.calendar"] = {},
+  --         ["core.completion"] = {
+  --             config = { engine = { module_name = "external.lsp-completion" } },
+  --         },
+  --         ["external.interim-ls"] = {
+  --           config = {
+  --             completion_provider = {
+  --               enable = true,
+  --               documentation = true,
+  --               categories = false,
+  --               -- suggest heading completions from the given file for `{@x|}` where `|` is your cursor
+  --               -- and `x` is an alphanumeric character. `{@name}` expands to `[name]{:$/people:# name}`
+  --               people = {
+  --                 enable = false,
+  --
+  --                 -- path to the file you're like to use with the `{@x` syntax, relative to the
+  --                 -- workspace root, without the `.norg` at the end.
+  --                 -- ie. `folder/people` results in searching `$/folder/people.norg` for headings.
+  --                 -- Note that this will change with your workspace, so it fails silently if the file
+  --                 -- doesn't exist
+  --                 path = "people",
+  --               }
+  --             }
+  --           }
+  --         },
+  --         -- ["core.concealer"] = { config = { icon_preset = "diamond" } },
+  --         ["core.esupports.metagen"] = { config = { type = "auto", update_date = true } },
+  --         ["core.qol.toc"] = {},
+  --         ["core.qol.todo_items"] = {},
+  --         ["core.looking-glass"] = {},
+  --         ["core.presenter"] = { config = { zen_mode = "zen-mode" } },
+  --         ["core.export"] = {},
+  --         ["core.export.markdown"] = { config = { extensions = "all" } },
+  --         ["core.summary"] = {},
+  --         ["core.tangle"] = { config = { report_on_empty = false } },
+  --         ["core.dirman"] = { -- Manages Neorg workspaces
+  --           config = {
+  --             workspaces = {
+  --               notes = "~/notes/notes",
+  --               work = "~/notes/work",
+  --             },
+  --             default_workspace = "work",
+  --           },
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
+}
